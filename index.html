@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UP Face Painting | Airdrie</title>
+  <meta name="description" content="Face painting, body art and balloon twisting for parties, festivals and special events in Airdrie and nearby communities.">
+  <style>
+    :root {
+      --pink:#ec4b9a;
+      --purple:#7c48b8;
+      --gold:#c88a38;
+      --ink:#34253d;
+      --soft:#fff8fc;
+      --mint:#effaf5;
+      --line:#eaddea;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family: ui-rounded, "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.55;
+    }
+    a { color:inherit; }
+    .wrap { width:min(1120px, 92%); margin:auto; }
+    nav {
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner {
+      min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .brand { font-weight:800; letter-spacing:.04em; }
+    .nav-links { display:flex; gap:18px; font-size:.94rem; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { text-decoration:none; }
+    .btn {
+      display:inline-block;
+      padding:13px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:750;
+      background:linear-gradient(90deg,var(--pink),var(--purple));
+      color:white;
+      box-shadow:0 8px 22px rgba(124,72,184,.20);
+    }
+    .btn.secondary {
+      background:white; color:var(--purple);
+      border:1px solid #d9c5e7; box-shadow:none;
+    }
+    header {
+      background:
+        radial-gradient(circle at 18% 20%, #ffe4f1 0, transparent 30%),
+        radial-gradient(circle at 85% 28%, #eee3ff 0, transparent 28%),
+        linear-gradient(180deg,#fff 0,#fff8fc 100%);
+      padding:64px 0 52px;
+    }
+    .hero {
+      display:grid; grid-template-columns: .95fr 1.05fr; gap:48px; align-items:center;
+    }
+    .logo-card {
+      max-width:460px; margin:auto; border-radius:50%;
+      overflow:hidden; box-shadow:0 24px 60px rgba(97,49,113,.16);
+      background:white;
+    }
+    .logo-card img { width:100%; display:block; }
+    .eyebrow {
+      color:var(--pink); font-weight:800; text-transform:uppercase;
+      letter-spacing:.14em; font-size:.78rem;
+    }
+    h1 {
+      font-size:clamp(2.7rem,6vw,5.3rem);
+      line-height:.96; margin:.25em 0 .24em; letter-spacing:-.04em;
+    }
+    .hero p { font-size:1.16rem; max-width:620px; color:#66566e; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+    .quick-facts {
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:24px;
+    }
+    .pill {
+      background:white; border:1px solid var(--line);
+      border-radius:999px; padding:8px 12px; font-size:.9rem;
+    }
+    section { padding:72px 0; }
+    .section-head { max-width:740px; margin-bottom:30px; }
+    h2 { font-size:clamp(2rem,4vw,3.2rem); margin:0 0 8px; letter-spacing:-.025em; }
+    .muted { color:#766879; }
+    .grid { display:grid; gap:22px; }
+    .gallery-3 { grid-template-columns:repeat(3,1fr); }
+    .gallery-4 { grid-template-columns:repeat(4,1fr); }
+    figure {
+      margin:0; border-radius:24px; overflow:hidden;
+      background:#f7f4f7; box-shadow:0 12px 32px rgba(50,29,59,.09);
+      border:1px solid #f0e8ef;
+    }
+    figure img { width:100%; height:100%; min-height:380px; object-fit:cover; display:block; }
+    .body figure img { min-height:430px; }
+    .artist figure img { min-height:340px; object-fit:contain; background:#fbf7ef; }
+    .soft-section { background:var(--soft); }
+    .mint-section { background:var(--mint); }
+    .pricing {
+      display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch;
+    }
+    .price-card, .info-card {
+      border-radius:28px; padding:30px;
+      border:1px solid var(--line); background:white;
+    }
+    .price {
+      font-size:clamp(2.5rem,5vw,4.4rem);
+      font-weight:850; letter-spacing:-.05em; color:var(--purple);
+      margin:4px 0;
+    }
+    .sale {
+      color:var(--pink); font-weight:800; font-size:1.18rem;
+    }
+    .checklist { padding-left:1.2rem; }
+    .coming {
+      border-radius:28px; padding:44px;
+      background:linear-gradient(135deg,#fce7f3,#eee6ff 55%,#fff1d6);
+      border:1px solid #ead9ec;
+      text-align:center;
+    }
+    .balloon-mark { font-size:4rem; line-height:1; margin-bottom:10px; }
+    .about {
+      display:grid; grid-template-columns:.85fr 1.15fr; gap:38px; align-items:center;
+    }
+    .about-copy { font-size:1.05rem; }
+    .cta {
+      text-align:center; border-radius:34px; padding:58px 28px;
+      background:linear-gradient(135deg,#7c48b8,#ec4b9a);
+      color:white;
+    }
+    .cta h2 { color:white; }
+    .cta p { max-width:680px; margin:0 auto 24px; opacity:.94; }
+    .cta .btn { background:white; color:var(--purple); }
+    footer {
+      padding:34px 0 46px; color:#7a6c7e; font-size:.93rem; text-align:center;
+    }
+    @media (max-width: 850px) {
+      .hero, .pricing, .about { grid-template-columns:1fr; }
+      .hero { text-align:center; }
+      .hero p { margin-left:auto; margin-right:auto; }
+      .hero-actions, .quick-facts { justify-content:center; }
+      .gallery-3 { grid-template-columns:1fr 1fr; }
+      .gallery-4 { grid-template-columns:1fr 1fr; }
+      .nav-links a:not(.btn) { display:none; }
+    }
+    @media (max-width: 560px) {
+      header { padding-top:34px; }
+      section { padding:54px 0; }
+      .gallery-3, .gallery-4 { grid-template-columns:1fr; }
+      figure img, .body figure img, .artist figure img { min-height:auto; }
+      .coming { padding:34px 20px; }
+      h1 { font-size:3.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">UP FACE PAINTING</div>
+      <div class="nav-links">
+        <a href="#face">Face Painting</a>
+        <a href="#body">Body Art</a>
+        <a href="#artist">Artist</a>
+        <a href="#pricing">Pricing</a>
+        <a class="btn" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap hero">
+      <div class="logo-card">
+        <img src="assets/logo.jpg" alt="Unicorn Palette UP Face Painting logo">
+      </div>
+      <div>
+        <div class="eyebrow">Airdrie, Alberta</div>
+        <h1>Colorful art for joyful events.</h1>
+        <p>Face Painting, Body Art & Balloon Twisting for parties, festivals and special events in Airdrie and nearby communities.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank" rel="noopener">Book Your Event</a>
+          <a class="btn secondary" href="#gallery">View Gallery</a>
+        </div>
+        <div class="quick-facts">
+          <span class="pill">From 1 hour</span>
+          <span class="pill">Up to 10 faces/hour</span>
+          <span class="pill">No travel fee within Airdrie</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="gallery">
+    <section id="face">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Face Painting</div>
+          <h2>Playful, colorful, one-of-a-kind faces.</h2>
+          <p class="muted">Floral, fantasy and character-inspired designs for children and events. The gallery will keep growing as new designs are created.</p>
+        </div>
+        <div class="grid gallery-3">
+          <figure><img src="assets/face-garden.png" alt="Green and pink floral face painting"></figure>
+          <figure><img src="assets/face-tiger.png" alt="Orange tiger face painting"></figure>
+          <figure><img src="assets/face-pink.png" alt="Pink floral face painting"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="body" class="soft-section body">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Body & Arm Painting</div>
+          <h2>More room for the painting to breathe.</h2>
+          <p class="muted">Floral arm art and decorative body painting are available for guests who want something different from a traditional face design.</p>
+        </div>
+        <div class="grid gallery-3">
+          <figure><img src="assets/body-red.png" alt="Red and orange floral arm painting"></figure>
+          <figure><img src="assets/body-sunflower.png" alt="Sunflower arm painting"></figure>
+          <figure><img src="assets/body-pink.png" alt="Pink floral arm painting"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap pricing">
+        <div class="price-card">
+          <div class="eyebrow">Pricing</div>
+          <h2>Simple and clear.</h2>
+          <div class="price">$150<span style="font-size:.35em;font-weight:700">/hour</span></div>
+          <div class="sale">Limited-time introductory rate: $120/hour</div>
+          <ul class="checklist">
+            <li>Up to 10 faces per hour</li>
+            <li>Bookings start from 1 hour</li>
+            <li>No hidden fees</li>
+            <li>No travel fee within Airdrie</li>
+          </ul>
+          <a class="btn" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank" rel="noopener">Check Availability</a>
+        </div>
+        <div class="info-card">
+          <div class="eyebrow">Events</div>
+          <h2>Made for celebrations.</h2>
+          <p class="muted">Birthday parties, community events, festivals, markets, school and daycare events, corporate events, weddings and private celebrations.</p>
+          <p class="muted">Larger groups or longer events? Send a booking enquiry and I’ll confirm availability and pricing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mint-section">
+      <div class="wrap">
+        <div class="coming">
+          <div class="balloon-mark">🎈</div>
+          <div class="eyebrow">Balloon Twisting</div>
+          <h2>Coming soon to UP.</h2>
+          <p class="muted">Balloon twisting is being added to party and event services. New designs and photos are coming soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="artist" class="artist">
+      <div class="wrap">
+        <div class="about">
+          <div class="about-copy">
+            <div class="eyebrow">About the Artist</div>
+            <h2>Painting comes first.</h2>
+            <p>UP Face Painting was created by an artist who loves color, flowers, imagination and live painting. A background in drawing and painting brings an artistic touch to each face and body design.</p>
+            <p class="muted">The work shown here is part of that larger painting practice — playful, floral, expressive and always evolving.</p>
+          </div>
+          <div class="grid gallery-4">
+            <figure><img src="assets/art-orange.jpg" alt="Framed original painting with orange-haired figure and flowers"></figure>
+            <figure><img src="assets/art-green.jpg" alt="Framed green floral portrait painting"></figure>
+            <figure><img src="assets/art-black.jpg" alt="Framed black-background floral portrait painting"></figure>
+            <figure><img src="assets/art-redhead.jpg" alt="Framed watercolor portrait painting"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap cta">
+        <h2>Ready to add some color to your event?</h2>
+        <p>Send a short booking enquiry with your event date, location and guest count. I’ll get back to you with availability and details.</p>
+        <a class="btn" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank" rel="noopener">Book Your Event</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>UP Face Painting · Unicorn Palette</strong><br>
+      Airdrie, Alberta · <a href="mailto:upfacepainting@gmail.com">upfacepainting@gmail.com</a><br><br>
+      © 2026 UP Face Painting. All artwork and images shown are for portfolio and promotional use.
+    </div>
+  </footer>
+</body>
+</html>
