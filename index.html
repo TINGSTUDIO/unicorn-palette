@@ -31,10 +31,36 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 .collection-block{padding:32px 0 10px;scroll-margin-top:95px}.collection-block h3{font:500 28px Georgia;margin:0 0 6px}.collection-block>p{color:var(--muted);margin:0 0 18px;font-size:13px}
 .collection-block .gallery{margin-bottom:28px}.collection-empty{border:1px dashed #d8c7d1;background:#fffdfb;padding:24px;border-radius:15px;color:var(--muted);font-size:13px}
 @media(max-width:520px){.category-orbit{gap:18px 8px;margin:24px auto 38px}.category-link b{font-size:12px}.category-link small{font-size:9px}}
+
+/* Pages CMS gallery collections */
+.cms-featured{background:#fffdfb;padding:54px 0}
+.cms-featured[hidden],.cms-collection[hidden]{display:none!important}
+.cms-section-head{text-align:center;max-width:700px;margin:0 auto 26px}
+.cms-section-head h2{font:500 clamp(30px,4vw,42px)/1.1 Georgia;margin:8px 0}
+.cms-section-head p{color:var(--muted);margin:0}
+.cms-collection{padding:52px 0 12px;background:#fffdfb}
+.cms-collection:nth-of-type(even){background:#fff9f6}
+.cms-collection .gallery{margin-top:22px}
+.cms-collection .tile img,.cms-featured .tile img{height:285px}
+@media(max-width:800px){.cms-collection .tile img,.cms-featured .tile img{height:260px}}
+@media(max-width:520px){.cms-featured{padding:42px 0}.cms-collection{padding:42px 0 8px}.cms-collection .tile img,.cms-featured .tile img{height:215px}}
+
 </style></head><body>
 <header><div class="wrap nav"><a class="brand" href="#top">Unicorn <span>Palette</span></a><nav class="links"><a href="#gallery">Gallery</a><a href="#beyond">Tina’s Artwork</a><a href="#events">At Events</a><a href="#about">Meet Tina</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><a href="#faq">FAQ</a></nav><a class="btn pink" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank">BOOK YOUR EVENT</a></div></header>
 <main id="top"><div class="hero"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">A little colour. A lot of wonder.</div><h1>Make your day<br><em>magical.</em></h1><p>Artful face painting for birthdays, celebrations and special events in Airdrie and nearby communities. Vivid colour, graceful details and beautifully balanced designs, created to make little moments feel magical.</p><div style="margin:22px 0 18px;padding:19px 21px;background:#fff;border:1px solid #f0d8e3;border-radius:17px;box-shadow:0 8px 24px #59405b12;max-width:430px"><div style="font-size:11px;letter-spacing:1.5px;font-weight:bold;color:#b45d82">🎄 CHRISTMAS PROMOTION</div><div style="font:700 42px Georgia;color:#d94f88;line-height:1.2;margin:5px 0">$125 <span style="font:14px Arial;color:#766b79">/ hour</span></div><div style="font-size:13px;color:#766b79"><span style="text-decoration:line-through">$150/hour regular price</span></div><div style="font-size:12px;line-height:1.55;margin-top:10px;color:#554b59">✦ Airdrie: No travel fee for bookings of 1 hour or more<br>✦ North Calgary: No travel fee for bookings of 2 hours or more<br><span style="font-size:11px;color:#766b79">Promotion valid until December 25, 2026.</span></div></div><div class="actions"><a class="btn pink" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank">Book Your Event</a><a class="btn" href="#gallery">Explore the Gallery</a><a class="btn" href="https://wa.me/14035603790" target="_blank" rel="noopener">Contact me on WhatsApp</a></div><p style="font-size:12px;margin-top:16px">Now booking parties &amp; events · Airdrie, Alberta</p></div><div class="heroimg"><img src="assets/unicorn-palette-christmas-hero.png" alt="A child enjoying colourful unicorn face painting at an outdoor event"><div class="tag">AI-assisted artwork</div></div></div></div>
 <div class="trust"><div class="wrap trustrow"><div><strong>Art-led designs</strong><small>COLOUR, DETAIL &amp; PERSONALITY</small></div><div><strong>Professional products</strong><small>SELECTED FOR FACE PAINTING</small></div><div><strong>Local to Airdrie</strong><small>NO TRAVEL FEE WITHIN AIRDRIE</small></div></div></div>
+
+<section class="cms-featured" id="cms-featured-home" hidden>
+  <div class="wrap">
+    <div class="cms-section-head">
+      <div class="eyebrow">A little something special</div>
+      <h2>Featured Creations</h2>
+      <p>A few favourites from the Unicorn Palette studio.</p>
+    </div>
+    <div class="gallery" id="cms-featured-grid"></div>
+  </div>
+</section>
+
 <section id="gallery"><div class="wrap">
 <div class="collection-intro"><div class="eyebrow">Explore the art</div><h2>Explore Our Collections</h2><p><em>More magical designs are on the way.</em></p><p>Discover vivid colour, graceful details and imaginative designs, thoughtfully created to bring a little beauty to every celebration. Tap any photograph to see the full image.</p></div>
 <div class="category-orbit">
@@ -105,6 +131,28 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 <div class="tile"><img src="assets/event-painting.webp" alt="Face painting at a real event"><span class="caption"><b>At the Event</b><small>A real moment from the painting table</small></span></div>
 <div class="tile"><img src="assets/artist-at-event.webp" alt="Tina at her face painting display"><span class="caption"><b>Meet the Artist</b><small>A look at the Unicorn Palette setup</small></span></div>
 </div></div>
+
+<div class="cms-collection" id="cms-face-painting" hidden>
+  <div class="wrap">
+    <div class="cms-section-head">
+      <div class="eyebrow">More to explore</div>
+      <h2>Face Painting</h2>
+      <p>More designs from the Unicorn Palette collection.</p>
+    </div>
+    <div class="gallery" id="cms-face-painting-grid"></div>
+  </div>
+</div>
+<div class="cms-collection" id="cms-balloon-twisting" hidden>
+  <div class="wrap">
+    <div class="cms-section-head">
+      <div class="eyebrow">Sculpted in colour</div>
+      <h2>Balloon Twisting</h2>
+      <p>Playful balloon creations for celebrations and special events.</p>
+    </div>
+    <div class="gallery" id="cms-balloon-twisting-grid"></div>
+  </div>
+</div>
+
 </div></section>
 <section class="beyond" id="beyond">
 <div class="wrap">
@@ -168,11 +216,83 @@ document.getElementById('year').textContent=new Date().getFullYear();
  const large=box.querySelector('img');
  const closeBtn=box.querySelector('.lightbox-close');
  function close(){box.classList.remove('open');large.src='';document.body.style.overflow='';}
- document.querySelectorAll('.tile img, .arttile img').forEach(function(img){
-  img.parentElement.addEventListener('click',function(){large.src=img.currentSrc||img.src;large.alt=img.alt;box.classList.add('open');document.body.style.overflow='hidden';});
+ document.addEventListener('click',function(e){
+  const img=e.target.closest('.tile img, .arttile img');
+  if(!img)return;
+  large.src=img.currentSrc||img.src;
+  large.alt=img.alt||'';
+  box.classList.add('open');
+  document.body.style.overflow='hidden';
  });
  closeBtn.addEventListener('click',close);
  box.addEventListener('click',function(e){if(e.target===box)close();});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&box.classList.contains('open'))close();});
+})();
+
+(async function loadCmsGallery(){
+ const featuredSection=document.getElementById('cms-featured-home');
+ const featuredGrid=document.getElementById('cms-featured-grid');
+ const faceSection=document.getElementById('cms-face-painting');
+ const faceGrid=document.getElementById('cms-face-painting-grid');
+ const balloonSection=document.getElementById('cms-balloon-twisting');
+ const balloonGrid=document.getElementById('cms-balloon-twisting-grid');
+
+ function makeTile(item){
+  const tile=document.createElement('div');
+  tile.className='tile';
+  const img=document.createElement('img');
+  img.loading='lazy';
+  img.alt=item.title ? item.title : 'Unicorn Palette artwork';
+  // Pages CMS stores uploaded media as /assets/filename. Keep that repository path intact.
+  img.src=item.image || '';
+  const caption=document.createElement('span');
+  caption.className='caption';
+  const title=document.createElement('b');
+  title.textContent=item.title || 'Untitled creation';
+  caption.appendChild(title);
+  if(item.description){
+   const description=document.createElement('small');
+   description.textContent=item.description;
+   caption.appendChild(description);
+  }
+  tile.appendChild(img);
+  tile.appendChild(caption);
+  return tile;
+ }
+
+ function addItems(grid,items){
+  items.forEach(function(item){grid.appendChild(makeTile(item));});
+ }
+
+ try{
+  const response=await fetch('data/gallery.json',{cache:'no-store'});
+  if(!response.ok)throw new Error('Gallery data could not be loaded');
+  const data=await response.json();
+  if(!Array.isArray(data))throw new Error('Gallery data format is not an array');
+
+  const visible=data
+   .filter(item=>item && item.visible===true && typeof item.image==='string' && item.image.trim())
+   .sort((a,b)=>(Number(a.sort_order)||9999)-(Number(b.sort_order)||9999));
+
+  const featured=visible.filter(item=>item.featured===true);
+  if(featured.length){
+   addItems(featuredGrid,featured);
+   featuredSection.hidden=false;
+  }
+
+  const facePainting=visible.filter(item=>item.service==='face-painting');
+  if(facePainting.length){
+   addItems(faceGrid,facePainting);
+   faceSection.hidden=false;
+  }
+
+  const balloons=visible.filter(item=>item.service==='balloon-twisting');
+  if(balloons.length){
+   addItems(balloonGrid,balloons);
+   balloonSection.hidden=false;
+  }
+ }catch(error){
+  console.warn('Unicorn Palette CMS gallery:',error);
+ }
 })();
 </script></body></html>
