@@ -67,5 +67,25 @@
     "featured": true,
     "visible": true,
     "sort_order": 8
+  },
+  {
+    "service": "face-painting",
+    "title": "Sweet Sugar Skull ",
+    "image": "/assets/1e112b38-3b17-42cb-9d59-6426572bde9b.png",
+    "category": "Floral & Princess Designs",
+    "description": "Sweet Sugar Skull ",
+    "featured": true,
+    "visible": true,
+    "sort_order": 9
+  },
+  {
+    "service": "face-painting",
+    "title": "Characters & Animal Faces",
+    "image": "/assets/18dd8c9b-a3c1-4e7d-b350-67098b47e5fb.png",
+    "category": "Characters & Animal Faces",
+    "description": "Pirate Face Painting",
+    "featured": true,
+    "visible": true,
+    "sort_order": 10
   }
 ]
