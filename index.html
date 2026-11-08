@@ -32,6 +32,27 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 .collection-block .gallery{margin-bottom:28px}.collection-empty{border:1px dashed #d8c7d1;background:#fffdfb;padding:24px;border-radius:15px;color:var(--muted);font-size:13px}
 @media(max-width:520px){.category-orbit{gap:18px 8px;margin:24px auto 38px}.category-link b{font-size:12px}.category-link small{font-size:9px}}
 
+
+/* Two-service introduction: face painting leads, balloon art adds a second colour note */
+.service-showcase{padding:42px 0 46px;background:#fffdfb}
+.service-showcase-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:18px;align-items:stretch}
+.service-panel{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 28px #4b31400b}
+.service-panel.main-service{border-color:#edc8d8;box-shadow:0 12px 34px #b45d8215}
+.service-panel.secondary-service{grid-template-columns:1fr;gap:0;background:#fff9f6}
+.service-panel-copy{padding:25px 0 25px 26px}
+.service-panel.secondary-service .service-panel-copy{padding:18px 22px 22px}
+.service-panel h2{font:500 clamp(25px,3vw,34px)/1.08 Georgia;margin:7px 0 10px}
+.service-panel p{font-size:13px;color:var(--muted);margin:0 0 17px}
+.service-kicker{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:bold;color:#b45d82}
+.service-panel .btn{font-size:11px;padding:11px 16px}
+.service-photo{height:100%;min-height:230px;background:#f6edf2;overflow:hidden}
+.service-photo img{width:100%;height:100%;min-height:230px;display:block;object-fit:cover}
+.secondary-service .service-photo{height:185px;min-height:185px;order:-1}
+.secondary-service .service-photo img{min-height:185px}
+.service-main-label{display:inline-block;padding:4px 9px;border-radius:20px;background:#fbe7ef;color:#a84f76;font-size:9px;font-weight:bold;letter-spacing:.7px;margin-bottom:3px}
+@media(max-width:800px){.service-showcase-grid{grid-template-columns:1fr}.service-panel{grid-template-columns:1fr 1fr}.service-panel.secondary-service{grid-template-columns:1fr 1fr}.secondary-service .service-photo{order:0;height:100%;min-height:210px}.secondary-service .service-photo img{min-height:210px}}
+@media(max-width:520px){.service-showcase{padding:28px 0 34px}.service-panel,.service-panel.secondary-service{grid-template-columns:1fr;gap:0}.service-panel-copy,.service-panel.secondary-service .service-panel-copy{padding:19px 20px 22px}.service-photo,.service-photo img{height:205px;min-height:205px}.secondary-service .service-photo{order:-1;height:185px;min-height:185px}.secondary-service .service-photo img{min-height:185px}.service-panel h2{font-size:28px}}
+
 /* Pages CMS gallery collections */
 .cms-featured{background:#fffdfb;padding:54px 0}
 .cms-featured[hidden],.cms-collection[hidden]{display:none!important}
@@ -48,6 +69,31 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 </style></head><body>
 <header><div class="wrap nav"><a class="brand" href="#top">Unicorn <span>Palette</span></a><nav class="links"><a href="#gallery">Gallery</a><a href="#beyond">Tina’s Artwork</a><a href="#events">At Events</a><a href="#about">Meet Tina</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><a href="#faq">FAQ</a></nav><a class="btn pink" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank">BOOK YOUR EVENT</a></div></header>
 <main id="top"><div class="hero"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">A little colour. A lot of wonder.</div><h1>Make your day<br><em>magical.</em></h1><p>Artful face painting for birthdays, celebrations and special events in Airdrie and nearby communities. Vivid colour, graceful details and beautifully balanced designs, created to make little moments feel magical.</p><div style="margin:22px 0 18px;padding:19px 21px;background:#fff;border:1px solid #f0d8e3;border-radius:17px;box-shadow:0 8px 24px #59405b12;max-width:430px"><div style="font-size:11px;letter-spacing:1.5px;font-weight:bold;color:#b45d82">🎄 CHRISTMAS PROMOTION</div><div style="font:700 42px Georgia;color:#d94f88;line-height:1.2;margin:5px 0">$125 <span style="font:14px Arial;color:#766b79">/ hour</span></div><div style="font-size:13px;color:#766b79"><span style="text-decoration:line-through">$150/hour regular price</span></div><div style="font-size:12px;line-height:1.55;margin-top:10px;color:#554b59">✦ Airdrie: No travel fee for bookings of 1 hour or more<br>✦ North Calgary: No travel fee for bookings of 2 hours or more<br><span style="font-size:11px;color:#766b79">Promotion valid until December 25, 2026.</span></div></div><div class="actions"><a class="btn pink" href="https://docs.google.com/forms/d/1lDir04eeclhZiBDVGNo_I5ourbqMMPl-g5GqrYnOgv0/viewform" target="_blank">Book Your Event</a><a class="btn" href="#gallery">Explore the Gallery</a><a class="btn" href="https://wa.me/14035603790" target="_blank" rel="noopener">Contact me on WhatsApp</a></div><p style="font-size:12px;margin-top:16px">Now booking parties &amp; events · Airdrie, Alberta</p></div><div class="heroimg"><img src="assets/unicorn-palette-christmas-hero.png" alt="A child enjoying colourful unicorn face painting at an outdoor event"><div class="tag">AI-assisted artwork</div></div></div></div>
+
+<section class="service-showcase" aria-label="Unicorn Palette services">
+  <div class="wrap service-showcase-grid">
+    <article class="service-panel main-service">
+      <div class="service-panel-copy">
+        <div class="service-main-label">Our main service</div>
+        <div class="service-kicker">Artistry on faces</div>
+        <h2>Face Painting</h2>
+        <p>Expressive designs, vivid colour and graceful details, created for birthdays, celebrations and special events.</p>
+        <a class="btn pink" href="#gallery">Explore Face Painting</a>
+      </div>
+      <div class="service-photo"><img src="face-painting-blue-green-floral.webp" alt="Blue and green floral face painting design"></div>
+    </article>
+    <article class="service-panel secondary-service">
+      <div class="service-photo"><img id="cms-balloon-preview" src="" alt="Colourful balloon flower creation" loading="lazy"></div>
+      <div class="service-panel-copy">
+        <div class="service-kicker">A colourful extra</div>
+        <h2>Balloon Twisting</h2>
+        <p>Playful balloon flowers and colourful creations to add another little moment of delight to your event.</p>
+        <a class="btn" href="#cms-balloon-twisting">Explore Balloon Art</a>
+      </div>
+    </article>
+  </div>
+</section>
+
 <div class="trust"><div class="wrap trustrow"><div><strong>Art-led designs</strong><small>COLOUR, DETAIL &amp; PERSONALITY</small></div><div><strong>Professional products</strong><small>SELECTED FOR FACE PAINTING</small></div><div><strong>Local to Airdrie</strong><small>NO TRAVEL FEE WITHIN AIRDRIE</small></div></div></div>
 
 <section class="cms-featured" id="cms-featured-home" hidden>
@@ -290,6 +336,11 @@ document.getElementById('year').textContent=new Date().getFullYear();
   if(balloons.length){
    addItems(balloonGrid,balloons);
    balloonSection.hidden=false;
+   const balloonPreview=document.getElementById('cms-balloon-preview');
+   if(balloonPreview){
+    balloonPreview.src=balloons[0].image;
+    balloonPreview.alt=balloons[0].title ? balloons[0].title : 'Balloon twisting creation';
+   }
   }
  }catch(error){
   console.warn('Unicorn Palette CMS gallery:',error);
