@@ -57,5 +57,15 @@
     "featured": true,
     "visible": true,
     "sort_order": 6
+  },
+  {
+    "service": "face-painting",
+    "title": "Sugar Skull",
+    "image": "/assets/图片_20261101165944_96_1.jpg",
+    "category": "Tina’s Own Face Painting",
+    "description": "A colorful look of sugar skull painting",
+    "featured": true,
+    "visible": true,
+    "sort_order": 8
   }
 ]
