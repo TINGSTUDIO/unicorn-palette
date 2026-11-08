@@ -27,7 +27,7 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 .category-orbit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 18px;max-width:900px;margin:30px auto 52px}
 .category-link{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;min-width:0}
 .category-link img{width:clamp(108px,16vw,158px);height:clamp(108px,16vw,158px);object-fit:cover;border-radius:50%;border:5px solid white;outline:1px solid #8c7d87;box-shadow:0 7px 22px #4b31401a;transition:transform .2s}
-.category-link:hover img{transform:translateY(-4px)}.category-link b{font:600 15px Georgia}.category-link small{font-size:10px;color:var(--muted);letter-spacing:.4px}
+.category-link:hover img{transform:translateY(-4px)}.category-link b{font:600 15px Georgia}.category-link small{font-size:10px;color:var(--muted);letter-spacing:.4px}.balloon-category-link img{outline-color:#d58eaa}
 .collection-block{padding:32px 0 10px;scroll-margin-top:95px}.collection-block h3{font:500 28px Georgia;margin:0 0 6px}.collection-block>p{color:var(--muted);margin:0 0 18px;font-size:13px}
 .collection-block .gallery{margin-bottom:28px}.collection-empty{border:1px dashed #d8c7d1;background:#fffdfb;padding:24px;border-radius:15px;color:var(--muted);font-size:13px}
 @media(max-width:520px){.category-orbit{gap:18px 8px;margin:24px auto 38px}.category-link b{font-size:12px}.category-link small{font-size:9px}}
@@ -96,16 +96,7 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 
 <div class="trust"><div class="wrap trustrow"><div><strong>Art-led designs</strong><small>COLOUR, DETAIL &amp; PERSONALITY</small></div><div><strong>Professional products</strong><small>SELECTED FOR FACE PAINTING</small></div><div><strong>Local to Airdrie</strong><small>NO TRAVEL FEE WITHIN AIRDRIE</small></div></div></div>
 
-<section class="cms-featured" id="cms-featured-home" hidden>
-  <div class="wrap">
-    <div class="cms-section-head">
-      <div class="eyebrow">A little something special</div>
-      <h2>Featured Creations</h2>
-      <p>A few favourites from the Unicorn Palette studio.</p>
-    </div>
-    <div class="gallery" id="cms-featured-grid"></div>
-  </div>
-</section>
+
 
 <section id="gallery"><div class="wrap">
 <div class="collection-intro"><div class="eyebrow">Explore the art</div><h2>Explore Our Collections</h2><p><em>More magical designs are on the way.</em></p><p>Discover vivid colour, graceful details and imaginative designs, thoughtfully created to bring a little beauty to every celebration. Tap any photograph to see the full image.</p></div>
@@ -116,6 +107,7 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 <a class="category-link" href="#collection-unicorn"><img src="face-painting-unicorn-rainbow.webp" alt="Rainbow unicorn face painting"><b>Unicorn &amp; Fantasy</b><small>MAGICAL DESIGNS</small></a>
 <a class="category-link" href="#collection-tina"><img src="tina-spider-portrait.png" alt="Tina wearing her original spider face painting"><b>Tina’s Own Face Painting</b><small>THE ARTIST’S COLLECTION</small></a>
 <a class="category-link" href="#collection-body"><img src="assets/body-pink.png" alt="Pink floral body art on an arm"><b>Body Art</b><small>ARMS &amp; LEGS</small></a>
+<a class="category-link balloon-category-link" href="#cms-balloon-twisting"><img id="cms-balloon-category-preview" src="" alt="Colourful balloon flower bouquet"><b>Balloon Twisting</b><small>COLOURFUL BALLOON ART</small></a>
 </div>
 <div class="collection-block" id="collection-spider"><h3>Characters &amp; Animal Faces</h3><p>Superheroes, friendly creatures and playful transformations.</p><div class="gallery">
 <div class="tile"><img src="face-painting-spiderweb.webp" alt="Spiderweb face painting"><span class="caption"><b>Spiderweb</b><small>A classic web-inspired character design</small></span></div>
@@ -276,8 +268,6 @@ document.getElementById('year').textContent=new Date().getFullYear();
 })();
 
 (async function loadCmsGallery(){
- const featuredSection=document.getElementById('cms-featured-home');
- const featuredGrid=document.getElementById('cms-featured-grid');
  const faceSection=document.getElementById('cms-face-painting');
  const faceGrid=document.getElementById('cms-face-painting-grid');
  const balloonSection=document.getElementById('cms-balloon-twisting');
@@ -320,12 +310,6 @@ document.getElementById('year').textContent=new Date().getFullYear();
    .filter(item=>item && item.visible===true && typeof item.image==='string' && item.image.trim())
    .sort((a,b)=>(Number(a.sort_order)||9999)-(Number(b.sort_order)||9999));
 
-  const featured=visible.filter(item=>item.featured===true);
-  if(featured.length){
-   addItems(featuredGrid,featured);
-   featuredSection.hidden=false;
-  }
-
   const facePainting=visible.filter(item=>item.service==='face-painting');
   if(facePainting.length){
    addItems(faceGrid,facePainting);
@@ -337,9 +321,14 @@ document.getElementById('year').textContent=new Date().getFullYear();
    addItems(balloonGrid,balloons);
    balloonSection.hidden=false;
    const balloonPreview=document.getElementById('cms-balloon-preview');
+   const balloonCategoryPreview=document.getElementById('cms-balloon-category-preview');
    if(balloonPreview){
     balloonPreview.src=balloons[0].image;
     balloonPreview.alt=balloons[0].title ? balloons[0].title : 'Balloon twisting creation';
+   }
+   if(balloonCategoryPreview){
+    balloonCategoryPreview.src=balloons[0].image;
+    balloonCategoryPreview.alt=balloons[0].title ? balloons[0].title : 'Balloon twisting collection';
    }
   }
  }catch(error){
