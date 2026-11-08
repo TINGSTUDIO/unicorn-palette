@@ -6,3 +6,51 @@ media:
     - jpg
     - jpeg
     - webp
+
+content:
+  - name: gallery
+    label: Gallery
+    type: file
+    path: data/gallery.json
+    format: json
+    list: true
+    fields:
+      - name: service
+        label: Service
+        type: select
+        options:
+          values:
+            - name: face-painting
+              label: Face Painting
+            - name: balloon-twisting
+              label: Balloon Twisting
+
+      - name: title
+        label: Artwork Title
+        type: string
+
+      - name: image
+        label: Artwork Photo
+        type: image
+        options:
+          path: assets
+
+      - name: category
+        label: Category
+        type: string
+
+      - name: description
+        label: Description
+        type: text
+
+      - name: featured
+        label: Featured on Homepage
+        type: boolean
+
+      - name: visible
+        label: Show on Website
+        type: boolean
+
+      - name: sort_order
+        label: Display Order
+        type: number
