@@ -62,6 +62,11 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 .cms-collection{padding:52px 0 12px;background:#fffdfb}
 .cms-collection:nth-of-type(even){background:#fff9f6}
 .cms-collection .gallery{margin-top:22px}
+.gallery .tile.is-paged-hidden{display:none!important}
+.gallery-more-wrap{display:flex;justify-content:center;margin:22px 0 8px}
+.gallery-more{border:1px solid #d9b9c8;background:#fff;color:#8d496c;border-radius:999px;padding:11px 24px;font:600 12px Arial,sans-serif;letter-spacing:.5px;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease}
+.gallery-more:hover{background:#8d496c;color:#fff;transform:translateY(-1px)}
+.gallery-more[hidden]{display:none!important}
 .cms-collection .tile img,.cms-featured .tile img{height:285px}
 @media(max-width:800px){.cms-collection .tile img,.cms-featured .tile img{height:260px}}
 @media(max-width:520px){.cms-featured{padding:42px 0}.cms-collection{padding:42px 0 8px}.cms-collection .tile img,.cms-featured .tile img{height:215px}}
@@ -169,16 +174,6 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 <div class="tile"><img src="assets/artist-at-event.webp" alt="Tina at her face painting display"><span class="caption"><b>Meet the Artist</b><small>A look at the Unicorn Palette setup</small></span></div>
 </div></div>
 
-<div class="cms-collection" id="cms-face-painting" hidden>
-  <div class="wrap">
-    <div class="cms-section-head">
-      <div class="eyebrow">More to explore</div>
-      <h2>Face Painting</h2>
-      <p>More designs from the Unicorn Palette collection.</p>
-    </div>
-    <div class="gallery" id="cms-face-painting-grid"></div>
-  </div>
-</div>
 <div class="cms-collection" id="cms-balloon-twisting" hidden>
   <div class="wrap">
     <div class="cms-section-head">
@@ -267,10 +262,9 @@ document.getElementById('year').textContent=new Date().getFullYear();
 })();
 
 (async function loadCmsGallery(){
- const faceSection=document.getElementById('cms-face-painting');
- const faceGrid=document.getElementById('cms-face-painting-grid');
  const balloonSection=document.getElementById('cms-balloon-twisting');
  const balloonGrid=document.getElementById('cms-balloon-twisting-grid');
+ const PAGE_SIZE=8;
 
  function makeTile(item){
   const tile=document.createElement('div');
@@ -278,7 +272,6 @@ document.getElementById('year').textContent=new Date().getFullYear();
   const img=document.createElement('img');
   img.loading='lazy';
   img.alt=item.title ? item.title : 'Unicorn Palette artwork';
-  // Pages CMS stores uploaded media as /assets/filename. Keep that repository path intact.
   img.src=item.image || '';
   const caption=document.createElement('span');
   caption.className='caption';
@@ -295,8 +288,49 @@ document.getElementById('year').textContent=new Date().getFullYear();
   return tile;
  }
 
+ function normalizeCategory(value){
+  return String(value||'').toLowerCase().replace(/[’']/g,'').replace(/&/g,'and').replace(/[^a-z0-9]/g,'');
+ }
+ const categoryTargets={
+  charactersandanimalfaces:'collection-spider',
+  floralandprincessdesigns:'collection-floral',
+  floralsidedesigns:'collection-floral',
+  princesscrowns:'collection-floral',
+  princessandcrowns:'collection-floral',
+  unicornandfantasy:'collection-unicorn',
+  tinasownfacepainting:'collection-tina',
+  bodyart:'collection-body'
+ };
+
  function addItems(grid,items){
   items.forEach(function(item){grid.appendChild(makeTile(item));});
+ }
+
+ function setupPagination(grid){
+  if(!grid)return;
+  const tiles=Array.from(grid.querySelectorAll(':scope > .tile'));
+  let shown=PAGE_SIZE;
+  let controls=grid.nextElementSibling;
+  if(!controls || !controls.classList.contains('gallery-more-wrap')){
+   controls=document.createElement('div');
+   controls.className='gallery-more-wrap';
+   const button=document.createElement('button');
+   button.className='gallery-more';
+   button.type='button';
+   button.textContent='Load More';
+   controls.appendChild(button);
+   grid.insertAdjacentElement('afterend',controls);
+   button.addEventListener('click',function(){
+    shown=Math.min(shown+PAGE_SIZE,tiles.length);
+    render();
+   });
+  }
+  const button=controls.querySelector('button');
+  function render(){
+   tiles.forEach(function(tile,index){tile.classList.toggle('is-paged-hidden',index>=shown);});
+   controls.hidden=tiles.length<=PAGE_SIZE || shown>=tiles.length;
+  }
+  render();
  }
 
  try{
@@ -310,10 +344,13 @@ document.getElementById('year').textContent=new Date().getFullYear();
    .sort((a,b)=>(Number(a.sort_order)||9999)-(Number(b.sort_order)||9999));
 
   const facePainting=visible.filter(item=>item.service==='face-painting');
-  if(facePainting.length){
-   addItems(faceGrid,facePainting);
-   faceSection.hidden=false;
-  }
+  facePainting.forEach(function(item){
+   const targetId=categoryTargets[normalizeCategory(item.category)];
+   const target=document.getElementById(targetId||'');
+   const grid=target ? target.querySelector('.gallery') : null;
+   if(grid)grid.appendChild(makeTile(item));
+   else console.warn('Unmatched Unicorn Palette face-painting category:',item.category,item.title);
+  });
 
   const balloons=visible.filter(item=>item.service==='balloon-twisting');
   if(balloons.length){
@@ -330,8 +367,11 @@ document.getElementById('year').textContent=new Date().getFullYear();
     balloonCategoryPreview.alt=balloons[0].title ? balloons[0].title : 'Balloon twisting collection';
    }
   }
+
+  document.querySelectorAll('#gallery .collection-block .gallery, #cms-balloon-twisting-grid').forEach(setupPagination);
  }catch(error){
   console.warn('Unicorn Palette CMS gallery:',error);
+  document.querySelectorAll('#gallery .collection-block .gallery').forEach(setupPagination);
  }
 })();
 </script></body></html>
