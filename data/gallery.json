@@ -8,5 +8,54 @@
     "featured": true,
     "visible": true,
     "sort_order": 1
+  },
+  {
+    "service": "balloon-twisting",
+    "title": "Colorful Balloon Flower Bouquet",
+    "image": "/assets/图片_20261108144506_306_1-1.jpg",
+    "category": "Floral Creations",
+    "description": "A playful bouquet of balloon flowers in malty colors, with graceful shapes and a touch of imagination.",
+    "featured": true,
+    "visible": true,
+    "sort_order": 2
+  },
+  {
+    "service": "balloon-twisting",
+    "title": "colorful tulip bouquet",
+    "image": "/assets/图片_20261108144512_310_1-1.jpg",
+    "category": "Floral Creations",
+    "description": "A elegant  bouquet of tulip balloon flowers with graceful shapes and a touch of imagination.",
+    "featured": true,
+    "visible": true,
+    "sort_order": 3
+  },
+  {
+    "service": "balloon-twisting",
+    "title": "enchanted bouquet",
+    "image": "/assets/图片_20261108144511_309_1-1.jpg",
+    "category": "Floral Creations",
+    "description": "A playful bouquet of balloon flowers in soft pastel colours, with graceful shapes and a touch of imagination.",
+    "featured": true,
+    "visible": true,
+    "sort_order": 4
+  },
+  {
+    "service": "balloon-twisting",
+    "image": "/assets/图片_20261108144513_311_1.jpg",
+    "category": "Floral Creations",
+    "description": "a  cute  beautiful balloon flower bouquet with flowers and bunnies.",
+    "featured": true,
+    "visible": true,
+    "sort_order": 5
+  },
+  {
+    "service": "balloon-twisting",
+    "title": "Purple bouquet",
+    "image": "/assets/图片_20261108144611_313_1-1.jpg",
+    "category": "Floral Creations",
+    "description": "beautiful purple balloon bouqet.",
+    "featured": true,
+    "visible": true,
+    "sort_order": 6
   }
 ]
