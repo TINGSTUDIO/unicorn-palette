@@ -21,8 +21,8 @@
   },
   {
     "service": "balloon-twisting",
-    "title": "colorful tulip bouquet",
-    "image": "/assets/图片_20261108144512_310_1-1.jpg",
+    "title": "colorful  bouquet",
+    "image": "/assets/图片_20261115193318_991_2.jpg",
     "category": "Floral Creations",
     "description": "A elegant  bouquet of tulip balloon flowers with graceful shapes and a touch of imagination.",
     "featured": true,
@@ -87,5 +87,24 @@
     "featured": true,
     "visible": true,
     "sort_order": 10
+  },
+  {
+    "service": "balloon-twisting",
+    "title": "Tina’s Artwork",
+    "image": "/assets/C244C821-4A5F-4A5A-A0D2-4F5147E750D4-1.jpeg",
+    "category": "Tina’s Artwork",
+    "description": "Soft rhythm ",
+    "featured": true,
+    "visible": true,
+    "sort_order": 11
+  },
+  {
+    "title": "Tina’s Artwork",
+    "image": "/assets/D0D3EE3F-AE0C-4AE6-99D5-3EE6596B1E8E-1.jpeg",
+    "category": "Tina’s Artwork",
+    "description": "Iris girl",
+    "featured": true,
+    "visible": true,
+    "sort_order": 12
   }
 ]
