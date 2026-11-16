@@ -62,7 +62,7 @@ footer{background:#332b39;color:white;padding:40px 0 22px}.foot{display:flex;jus
 .cms-collection{padding:52px 0 12px;background:#fffdfb}
 .cms-collection:nth-of-type(even){background:#fff9f6}
 .cms-collection .gallery{margin-top:22px}
-.gallery .tile.is-paged-hidden{display:none!important}
+.gallery .tile.is-paged-hidden,.artgrid .arttile.is-paged-hidden{display:none!important}
 .gallery-more-wrap{display:flex;justify-content:center;margin:22px 0 8px}
 .gallery-more{border:1px solid #d9b9c8;background:#fff;color:#8d496c;border-radius:999px;padding:11px 24px;font:600 12px Arial,sans-serif;letter-spacing:.5px;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease}
 .gallery-more:hover{background:#8d496c;color:#fff;transform:translateY(-1px)}
@@ -288,6 +288,28 @@ document.getElementById('year').textContent=new Date().getFullYear();
   return tile;
  }
 
+ function makeArtistTile(item){
+  const tile=document.createElement('div');
+  tile.className='arttile';
+  const img=document.createElement('img');
+  img.loading='lazy';
+  img.alt=item.title ? item.title : 'Artwork by Tina';
+  img.src=item.image || '';
+  const caption=document.createElement('div');
+  caption.className='caption';
+  const title=document.createElement('b');
+  title.textContent=item.title || 'Untitled artwork';
+  caption.appendChild(title);
+  if(item.description){
+   const description=document.createElement('small');
+   description.textContent=item.description;
+   caption.appendChild(description);
+  }
+  tile.appendChild(img);
+  tile.appendChild(caption);
+  return tile;
+ }
+
  function normalizeCategory(value){
   return String(value||'').toLowerCase().replace(/[’']/g,'').replace(/&/g,'and').replace(/[^a-z0-9]/g,'');
  }
@@ -308,7 +330,8 @@ document.getElementById('year').textContent=new Date().getFullYear();
 
  function setupPagination(grid){
   if(!grid)return;
-  const tiles=Array.from(grid.querySelectorAll(':scope > .tile'));
+  const cardSelector=grid.classList.contains('artgrid') ? ':scope > .arttile' : ':scope > .tile';
+  const tiles=Array.from(grid.querySelectorAll(cardSelector));
   let shown=PAGE_SIZE;
   let controls=grid.nextElementSibling;
   if(!controls || !controls.classList.contains('gallery-more-wrap')){
@@ -343,16 +366,55 @@ document.getElementById('year').textContent=new Date().getFullYear();
    .filter(item=>item && item.visible===true && typeof item.image==='string' && item.image.trim())
    .sort((a,b)=>(Number(a.sort_order)||9999)-(Number(b.sort_order)||9999));
 
-  const facePainting=visible.filter(item=>item.service==='face-painting');
-  facePainting.forEach(function(item){
-   const targetId=categoryTargets[normalizeCategory(item.category)];
-   const target=document.getElementById(targetId||'');
-   const grid=target ? target.querySelector('.gallery') : null;
-   if(grid)grid.appendChild(makeTile(item));
-   else console.warn('Unmatched Unicorn Palette face-painting category:',item.category,item.title);
+  const legacyCategoryTargets={
+   charactersandanimalfaces:'collection-spider',
+   floralandprincessdesigns:'collection-floral',
+   floralsidedesigns:'collection-floral',
+   princesscrowns:'collection-floral',
+   princessandcrowns:'collection-floral',
+   unicornandfantasy:'collection-unicorn',
+   tinasownfacepainting:'collection-tina',
+   bodyart:'collection-body'
+  };
+  const catalogTargets={
+   charactersanimalfaces:'collection-spider',
+   floralprincessdesigns:'collection-floral',
+   unicornfantasy:'collection-unicorn',
+   tinasownfacepainting:'collection-tina',
+   bodyart:'collection-body'
+  };
+
+  const balloons=[];
+  visible.forEach(function(item){
+   const catalog=normalizeCategory(item.catalog);
+   let targetId=catalogTargets[catalog] || legacyCategoryTargets[normalizeCategory(item.category)];
+   const isBalloon=catalog==='balloontwisting' || (!catalog && item.service==='balloon-twisting');
+   const isArtist=catalog==='tinasartwork' || (!catalog && item.service==='artist-artwork');
+   const isEvent=catalog==='atevents';
+   if(isBalloon){balloons.push(item);return;}
+   if(isArtist){
+    const artistGrid=document.querySelector('#beyond .artgrid');
+    if(artistGrid)artistGrid.appendChild(makeArtistTile(item));
+    return;
+   }
+   if(isEvent){
+    const eventGrid=document.querySelector('#collection-events .gallery');
+    if(eventGrid)eventGrid.appendChild(makeTile(item));
+    return;
+   }
+   if(targetId){
+    const target=document.getElementById(targetId);
+    const grid=target ? target.querySelector('.gallery') : null;
+    if(grid)grid.appendChild(makeTile(item));
+    else console.warn('Unicorn Palette catalog target not found:',item.catalog,item.title);
+    return;
+   }
+   // Backward compatibility: older Face Painting records use Service + Category.
+   if(!catalog && item.service==='face-painting'){
+    console.warn('Unmatched Unicorn Palette face-painting category:',item.category,item.title);
+   }
   });
 
-  const balloons=visible.filter(item=>item.service==='balloon-twisting');
   if(balloons.length){
    addItems(balloonGrid,balloons);
    balloonSection.hidden=false;
@@ -368,10 +430,10 @@ document.getElementById('year').textContent=new Date().getFullYear();
    }
   }
 
-  document.querySelectorAll('#gallery .collection-block .gallery, #cms-balloon-twisting-grid').forEach(setupPagination);
+  document.querySelectorAll('#gallery .collection-block .gallery, #cms-balloon-twisting-grid, #beyond .artgrid').forEach(setupPagination);
  }catch(error){
   console.warn('Unicorn Palette CMS gallery:',error);
-  document.querySelectorAll('#gallery .collection-block .gallery').forEach(setupPagination);
+  document.querySelectorAll('#gallery .collection-block .gallery, #beyond .artgrid').forEach(setupPagination);
  }
 })();
 </script></body></html>
