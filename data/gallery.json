@@ -99,12 +99,23 @@
     "sort_order": 11
   },
   {
-    "title": "Tina’s Artwork",
-    "image": "/assets/D0D3EE3F-AE0C-4AE6-99D5-3EE6596B1E8E-1.jpeg",
-    "category": "Tina’s Artwork",
-    "description": "Iris girl",
+    "service": "face-painting",
+    "title": "Floral & Princess Designs",
+    "image": "/assets/c9e02cf4-84b8-4f64-84a9-9d345dc5b107.png",
+    "category": "Floral & Princess Designs",
+    "description": "purple blue princes",
     "featured": true,
     "visible": true,
     "sort_order": 12
+  },
+  {
+    "service": "face-painting",
+    "title": "Floral & Princess Designs",
+    "image": "/assets/图片_20261114172934_1628_3.jpg",
+    "category": "Floral & Princess Designs",
+    "description": "Christmas candy cane",
+    "featured": true,
+    "visible": true,
+    "sort_order": 13
   }
 ]
