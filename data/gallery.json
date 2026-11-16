@@ -89,11 +89,10 @@
     "sort_order": 10
   },
   {
-    "service": "balloon-twisting",
-    "title": "Tina’s Artwork",
-    "image": "/assets/C244C821-4A5F-4A5A-A0D2-4F5147E750D4-1.jpeg",
-    "category": "Tina’s Artwork",
-    "description": "Soft rhythm ",
+    "service": "face-painting",
+    "title": "Unicorn",
+    "category": "Unicorn & Fantasy",
+    "description": "Yellow Unicorn",
     "featured": true,
     "visible": true,
     "sort_order": 11
