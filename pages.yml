@@ -1,0 +1,80 @@
+media:
+  input: assets
+  output: /assets
+  extensions:
+    - png
+    - jpg
+    - jpeg
+    - webp
+
+content:
+  - name: gallery
+    label: Gallery
+    type: file
+    path: data/gallery.json
+    format: json
+    list: true
+    fields:
+      - name: service
+        label: Service
+        type: select
+        options:
+          values:
+            - name: face-painting
+              label: Face Painting
+            - name: balloon-twisting
+              label: Balloon Twisting
+            - name: artist-artwork
+              label: Artist Artwork
+
+      - name: catalog
+        label: Catalog / Website Section
+        type: select
+        options:
+          values:
+            - name: characters-animal-faces
+              label: Characters & Animal Faces
+            - name: floral-princess-designs
+              label: Floral & Princess Designs
+            - name: unicorn-fantasy
+              label: Unicorn & Fantasy
+            - name: tinas-own-face-painting
+              label: Tina’s Own Face Painting
+            - name: body-art
+              label: Body Art
+            - name: balloon-twisting
+              label: Balloon Twisting
+            - name: tinas-artwork
+              label: Tina’s Artwork
+            - name: at-events
+              label: At Events
+
+      - name: title
+        label: Artwork Title
+        type: string
+
+      - name: image
+        label: Artwork Photo
+        type: image
+        options:
+          path: assets
+
+      - name: category
+        label: Category
+        type: string
+
+      - name: description
+        label: Description
+        type: text
+
+      - name: featured
+        label: Featured on Homepage
+        type: boolean
+
+      - name: visible
+        label: Show on Website
+        type: boolean
+
+      - name: sort_order
+        label: Display Order
+        type: number
